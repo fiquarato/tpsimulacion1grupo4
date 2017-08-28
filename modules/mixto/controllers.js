@@ -41,7 +41,7 @@ angular.module('Mixto', ["chart.js"])
       $scope.randoms = new Array();
 
       if(fin<=ini) {
-        Notification.error({message: 'Inicio debe ser menor que Fin', delay: 3000,  replaceMessage: true});
+        Notification.error({message: 'A (inicio) debe ser menor que B (fin)', delay: 3000,  replaceMessage: true});
         return;
       }
 
@@ -78,7 +78,9 @@ angular.module('Mixto', ["chart.js"])
     for (var i = 0; i < $scope.labels.length; i++) {
      $scope.series.push(($scope.labels[i]-(paso/2)).toFixed(2));
    }
-   $scope.disabledButton = true;
+   if($scope.data.length > 0){
+    $scope.disabledButton = true;
+   }
  };
 
  $scope.random1 = function(ini, fin, modulo, a, c){

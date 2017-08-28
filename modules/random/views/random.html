@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<form class="col-md-12">
 	<h1>Método Aleatorio JAVASCRIPT</h1>
 	<div class="col-md-2">
 		<div class="form-group">
@@ -14,11 +14,11 @@
 	</div>
 	<div class="col-md-2">
 		<label for="cantidad" class="control-label">Cantidad</label>
-		<input name="cantidad" ng-model="cantidad" class="form-control" type="number" required>
+		<input name="cantidad" ng-model="cantidad" class="form-control" type="number" min="1" required>
 	</div>
 	<div class="col-md-2">
 		<label for="intervalos" class="control-label">Intervalos</label>
-		<input name="intervalos" ng-model="intervalos" class="form-control" type="number" min="1" required>
+		<input name="intervalos" ng-model="intervalos" class="form-control" type="number" min="1" max="1000" required>
 	</div>
 	<div class="col-md-2">
 		<label for="ejecutar" class="control-label">Ejecutar</label>
@@ -28,7 +28,7 @@
 		<label for="agregar" class="control-label">Agregar Nº</label>
 		<button class="btn btn-success form-control" type="button" ng-disabled="disabledButton==false" ng-click="random1(ini, fin)">Agregar</button>
 	</div>
-</div>
+</form>
 <div class="col-md-6" ng-show="data.length > 0">
 	<label class="control-label">Gráfico:</label>
 	<canvas id="myChart" class="chart chart-bar" chart-data="data"

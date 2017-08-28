@@ -41,12 +41,7 @@ angular.module('Multiplicativo', ["chart.js"])
       $scope.randoms = new Array();
 
       if(fin<=ini) {
-        Notification.error({message: 'Inicio debe ser menor que Fin', delay: 3000,  replaceMessage: true});
-        return;
-      }
-
-      if(cantidad<=0) {
-        Notification.error({message: 'Debe introducir una cantidad correcta', delay: 3000,  replaceMessage: true});
+        Notification.error({message: 'A (inicio) debe ser menor que B (fin)', delay: 3000,  replaceMessage: true});
         return;
       }
 
@@ -78,10 +73,12 @@ angular.module('Multiplicativo', ["chart.js"])
     for (var i = 0; i < $scope.labels.length; i++) {
      $scope.series.push(($scope.labels[i]-(paso/2)).toFixed(2));
    }
-   $scope.disabledButton = true;
- };
+   if($scope.data.length > 0){
+    $scope.disabledButton = true;
+  }
+};
 
- $scope.random1 = function(ini, fin, modulo, a){
+$scope.random1 = function(ini, fin, modulo, a){
   var aux = $scope.semilla/modulo;
   $scope.semilla = (a*$scope.semilla)%modulo;
   var random = (ini + aux*(fin-ini)).toFixed(2);

@@ -28,18 +28,14 @@ angular.module('Random', ["chart.js"])
       }
     };
 
+    $scope.disabledButton = false;
+
     $scope.randomJavaScript = function(ini,fin,cantidad, intervalos){
 
       if(fin<=ini) {
-        Notification.error({message: 'Inicio debe ser menor que Fin', delay: 3000,  replaceMessage: true});
+        Notification.error({message: 'A (inicio) debe ser menor que B (fin)', delay: 3000,  replaceMessage: true});
         return;
       }
-
-      if(cantidad<=0) {
-        Notification.error({message: 'Debe introducir una cantidad correcta', delay: 3000,  replaceMessage: true});
-        return;
-      }
-
 
       $scope.labels = new Array();
       $scope.series = new Array();
@@ -71,7 +67,9 @@ angular.module('Random', ["chart.js"])
     for (var i = 0; i < $scope.labels.length; i++) {
      $scope.series.push(($scope.labels[i]-(paso/2)).toFixed(2));
    }
-   $scope.disabledButton = true;
+   if($scope.data.length > 0){
+    $scope.disabledButton = true;
+  }
  };
 
  $scope.random1 = function(ini, fin){

@@ -9,8 +9,6 @@ angular.module('SimulacioneApp', [
     'Mixto',
     'Multiplicativo',
     'ngRoute',
-    'ngCookies',
-    'infinite-scroll',
     'ui.bootstrap',
     'angular-confirm',
     'ui-notification',
@@ -32,10 +30,8 @@ angular.module('SimulacioneApp', [
     .otherwise({ redirectTo: '/random' });
 }])
 
-.run(['$rootScope', '$location', '$cookieStore', '$http',
-    function ($rootScope, $location, $cookieStore, $http) {	
+.run(['$rootScope', '$location', '$http',
+    function ($rootScope, $location, $http) {	
 		
-        // keep user logged in after page refresh
-        $rootScope.globals = $cookieStore.get('globals') || {};
         
     }]);

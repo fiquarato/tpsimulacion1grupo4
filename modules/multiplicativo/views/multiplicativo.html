@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<form class="col-md-12">
 	<h1>Método Congruencial MULTIPLICATIVO</h1>
 	<div class="col-md-3">
 		<div class="form-group">
@@ -21,7 +21,7 @@
 	<div class="col-md-3">
 		<div class="form-group">
 			<label for="cantidad" class="control-label">Cantidad a generar</label>
-			<input name="cantidad" ng-model="cantidad" class="form-control" type="number" required>
+			<input name="cantidad" ng-model="cantidad" class="form-control" type="number"  min="1" required>
 		</div>
 	</div>
 	<div class="col-md-3">
@@ -39,7 +39,7 @@
 	<div class="col-md-3">
 		<div class="form-group">
 			<label for="intervalos" class="control-label">Intervalos Gráfica</label>
-			<input name="intervalos" ng-model="intervalos" class="form-control" type="number" min="1" required>
+			<input name="intervalos" ng-model="intervalos" class="form-control" type="number" min="1" max="1000" required>
 		</div>
 	</div>
 	<div class="col-md-2">
@@ -50,7 +50,7 @@
 		<label for="agregar" class="control-label">Agregar Nº</label>
 		<button class="btn btn-success form-control" type="button" ng-disabled="disabledButton==false" ng-click="random1(ini, fin, modulo, a)">Agregar</button>
 	</div>
-</div>
+</form>
 <div class="col-md-6">
 	<label class="control-label" ng-show="data.length > 0">Gráfico:</label>
 	<canvas id="myChart" class="chart chart-bar" chart-data="data"
